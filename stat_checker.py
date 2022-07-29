@@ -64,7 +64,6 @@ class StatChecker():
 
         for xIndex in range(xAxisLen):
             # dataframe for specific hour/day/month/etc
-            # currentDF = nanDF.loc[lambda row: row['time_local'] == hours[hourIndex]] # TODO: fix this
 
             if timeFrame == "year":
                 currentDF = nanDF.loc[nanDF.index.year == xIndex + sYear]
@@ -81,7 +80,7 @@ class StatChecker():
             else:
                 pass # throw an error maybe?
 
-
+            # setting up dictionary with messages and numbr of NaNs for specific time interval
             nanDictList.append({})
             for message in currentDF[dataLabel+' - qualifier']:
                 numNaNsTotal[xIndex] += 1
@@ -96,7 +95,8 @@ class StatChecker():
                 messageList.append(message)
         
             valueList[messageList.index(message)][xIndex] += 1
-
+        
+        # Plotting
         graph = plt.figure(figsize = [15, 6])
         ax = plt.axes()
 
