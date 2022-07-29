@@ -273,7 +273,7 @@ class StatChecker():
             df - the dataframe 
 
         Returns: 
-            tally_df - the dataframe organized by data of the first NaN, and has the number of NaNs in a row
+            tally_df - the dataframe organized by date of the first NaN, and has the number of NaNs in a row
         """
         
         # creates a dataframe of just that variable
